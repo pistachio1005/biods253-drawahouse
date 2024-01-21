@@ -2,6 +2,8 @@ import turtle as t
 from Features.outline import *
 from Features.clouds import *
 from Features.trees import *
+from Features.windows import *
+from Features.doors import *
 
 def main():
     t.speed("fastest")
@@ -22,6 +24,18 @@ def main():
     draw_tree(-400, -200, 100, 40, 120)  # Tree on the left side
     draw_tree(300, -200, 100, 40, 120) 
 
+    # Draw door
+    draw_door(-20,-70,40,80)
+
+    # Draw garage doors
+    draw_gdoor(-190,-50,50,100)
+    draw_gdoor(140,-50,50,100)
+
+    # # Draw windows
+    draw_window(-190,10,50,50)
+    draw_window(-105,10,50,50)
+    draw_window(55,10,50,50)
+    draw_window(140,10,50,50)
 
     # Hide Turtle
     t.hideturtle()

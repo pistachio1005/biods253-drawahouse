@@ -1,4 +1,4 @@
-import turtle
+import turtle as t
 
 #draw rectangluar door
 def rectangle(custom_turtle, width, height):
@@ -6,49 +6,38 @@ def rectangle(custom_turtle, width, height):
         custom_turtle.forward(width)  #Move and turn turtle
         custom_turtle.right(90)       
         custom_turtle.forward(height)
-        custom_turtle.right(90)       
+        custom_turtle.right(90)     
 
-#turtle graphics screen
-window = turtle.Screen()
+def draw_door(x,y,width,height):
+    """
+    Function to draw the entrance door
+    """
 
-#door turtle
-door_turtle = turtle.Turtle()
-door_turtle.shape("turtle")
-door_turtle.color("brown")
+    t.color("brown")
+    t.begin_fill()
 
-#door position
-door_turtle.penup()
-door_turtle.goto(0, -20)  #Adjust door position
-door_turtle.pendown()
+    #door position
+    t.penup()
+    t.goto(x,y)  #Adjust door position
+    t.pendown()
 
-#Draw rectangular door
-rectangle(door_turtle, 60, 100)
+    #Draw rectangular door
+    rectangle(t, width, height)
+    t.end_fill()
 
-#first garage turtle
-garage1_turtle = turtle.Turtle()
-garage1_turtle.shape("turtle")
-garage1_turtle.color("gray")
+def draw_gdoor(x,y,width,height):
+    """
+    Function to draw the garage door
+    """
+    t.begin_fill()
+    t.color("gray")
 
-#Position the first garage turtle without drawing
-garage1_turtle.penup()
-garage1_turtle.goto(140, 0)  # Adjust the position as needed
-garage1_turtle.pendown()
+    #Position the first garage turtle without drawing
+    t.penup()
+    t.goto(x, y)  # Adjust the position as needed
+    t.pendown()
 
-#draw first rectangular garage
-rectangle(garage1_turtle, 100, 120)
+    #draw first rectangular garage
+    rectangle(t, width, height)
+    t.end_fill()
 
-#second garage turtle
-garage2_turtle = turtle.Turtle()
-garage2_turtle.shape("turtle")
-garage2_turtle.color("gray")
-
-#position the second garage turtle without drawing
-garage2_turtle.penup()
-garage2_turtle.goto(-180, 0)  # Adjust the position as needed
-garage2_turtle.pendown()
-
-#second rectangular garage
-rectangle(garage2_turtle, 100, 120)
-
-#Close the turtle graphics window when clicked
-window.exitonclick()
