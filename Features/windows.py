@@ -1,32 +1,32 @@
-import turtle
+import turtle as t
 
  #Draw square window
-def square_window(my_turtle):
-    for _ in range(4):
-        my_turtle.forward(50)  #Move the turtle 50 spaces
-        my_turtle.right(90)    #Turn the turtle
+def rectangle(custom_turtle, width, height):
+    for _ in range(2):
+        custom_turtle.forward(width)  #Move and turn turtle
+        custom_turtle.right(90)       
+        custom_turtle.forward(height)
+        custom_turtle.right(90)     
 
-#Create a turtle graphics screen
-window = turtle.Screen()
+def draw_window(x,y,width,height):
+    t.color("blue")
 
-#Create the first turtle
-turtle1 = turtle.Turtle()
-turtle1.shape("turtle")
-turtle1.color("blue")
+    #Move the second turtle to a new position
+    t.penup()
+    t.goto(x,y)  #Move 200 spaces to the right
+    t.pendown()
 
-square_window(turtle1)
+    #Draw rectangular door
+    rectangle(t, width, height)
 
-#Create the second turtle
-turtle2 = turtle.Turtle()
-turtle2.shape("turtle")
-turtle2.color("blue")
+def main():
+    t.speed("fastest")
+    draw_window(0,0,50,50)
+    # Hide Turtle
+    t.hideturtle()
 
-#Move the second turtle to a new position
-turtle2.penup()
-turtle2.goto(200, 0)  #Move 200 spaces to the right
-turtle2.pendown()
+    # Keep the window open
+    t.done()
 
-square_window(turtle2)
-
-#Close the turtle graphics window when clicked
-window.exitonclick()
+if __name__ == "__main__":
+    main()
