@@ -10,6 +10,9 @@ def filled_circle(radius, color):
     t.end_fill()
 
 def rectangle(custom_turtle, width, height):
+    """
+    Helper function to draw a rectangle
+    """
     for _ in range(2):
         custom_turtle.forward(width)
         custom_turtle.right(90)       

@@ -32,7 +32,7 @@ def draw_tree(x, y, trunk_height, trunk_width, foliage_diameter):
     t.circle(foliage_diameter//1.5)
     t.end_fill()
 
-def draw_filled_rectangle(x, y, width, height, color):
+def draw_yard(x, y, width, height, color):
     """
     Function to draw a filled rectangle.
     Arguments:
