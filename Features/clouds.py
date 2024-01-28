@@ -1,14 +1,5 @@
 import turtle as t
-
-
-def filled_circle(radius, color):
-    """
-    Helper function to draw a filled circle
-    """
-    t.color(color,color)
-    t.begin_fill()
-    t.circle(radius)
-    t.end_fill()
+from shapes import *
 
 def draw_cloud(x, y, radius, cloud_color="lightblue"):
     """
