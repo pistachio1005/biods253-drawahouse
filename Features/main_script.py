@@ -1,11 +1,14 @@
 import turtle as t
-from features.outline import *
-from features.clouds import *
-from features.trees import *
-from features.windows import *
-from features.doors import *
+from outline import *
+from clouds import *
+from trees import *
+from windows import *
+from doors import *
 
 def main():
+    """
+    Main function for drawing a house
+    """
     t.speed("fastest")
 
     # Set up Turtle and set canvas dimensions

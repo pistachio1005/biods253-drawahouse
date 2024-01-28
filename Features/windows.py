@@ -1,15 +1,15 @@
 import turtle as t
-
-
-def rectangle(custom_turtle, width, height):
-    for _ in range(2):
-        custom_turtle.forward(width)
-        custom_turtle.right(90)       
-        custom_turtle.forward(height)
-        custom_turtle.right(90)     
+from shapes import *
 
 
 def draw_window(x,y,width,height):
+    """
+    Function to draw a window
+    Arguments:
+    (x,y): starting position
+    width: width of the window
+    height: height of the window
+    """
     t.color("blue")
 
     #Move the second turtle to a new position
