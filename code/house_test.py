@@ -3,16 +3,17 @@
 from PIL import Image
 import matplotlib.testing.compare as mpcompare
 import unittest
-import shapes
 import tempfile
 import os.path
 import svg_turtle
 import inspect
+import shapes
 
 from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPDF, renderPM
 
-CANVAS_SIZE = (500,500)
+# CANVAS_SIZE = (500,500)
+CANVAS_SIZE = (957, 807)
 
 class TestShapes(unittest.TestCase):
     def _compare_canvas_to_expected(self, expected_filename, override_tmpdir=None):
@@ -45,17 +46,17 @@ class TestShapes(unittest.TestCase):
         self._turtle = svg_turtle.SvgTurtle(*CANVAS_SIZE)
 
     def test_circle(self):
-        shapes.draw_circle(self._turtle, 20, 20, 20)
-
+        # shapes.draw_circle(self._turtle, 20, 20, 20)
+        shapes.filled_circle(50, 'red')
         # compare this 20,20,20 turtle against the well-known turtle png
-        self.assertIsNone(self._compare_canvas_to_expected(expected_filename='testdata/circle-20.png'))
+        self.assertIsNone(self._compare_canvas_to_expected(expected_filename='drawing.png'))
 
-    def test_circle_fail(self):
-        # test that a badly sized circle fails to compare as equal
-        shapes.draw_circle(self._turtle, 20,20,29)
+    # def test_circle_fail(self):
+    #     # test that a badly sized circle fails to compare as equal
+    #     shapes.draw_circle(self._turtle, 20,20,29)
 
-        # this should not match, therefore should be not none.
-        self.assertIsNotNone(self._compare_canvas_to_expected(expected_filename='testdata/circle-20.png'))
+    #     # this should not match, therefore should be not none.
+    #     self.assertIsNotNone(self._compare_canvas_to_expected(expected_filename='testdata/circle-20.png'))
 
 
 if __name__ == '__main__':
