@@ -88,7 +88,7 @@ def main():
     t.hideturtle()
 
     # Keep the window open
-    t.done()
+    # t.done()
 
 if __name__ == "__main__":
     main()

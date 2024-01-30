@@ -19,29 +19,29 @@ def rectangle(custom_turtle, width, height):
         custom_turtle.forward(height)
         custom_turtle.right(90)     
 
-import turtle
-from PIL import Image
+# import turtle
+# from PIL import Image
 
-# def filled_circle(radius, color):
-#     """
-#     Helper function to draw a filled circle
-#     """
-#     t = turtle.Turtle()
-#     t.color(color, color)
-#     t.begin_fill()
-#     t.circle(radius)
-#     t.end_fill()
-#     t.hideturtle()
+# # def filled_circle(radius, color):
+# #     """
+# #     Helper function to draw a filled circle
+# #     """
+# #     t = turtle.Turtle()
+# #     t.color(color, color)
+# #     t.begin_fill()
+# #     t.circle(radius)
+# #     t.end_fill()
+# #     t.hideturtle()
 
-    # # Save the drawing to a PostScript file
-    # canvas = turtle.getcanvas()
-    # canvas.postscript(file="drawing.ps", colormode='color')
+#     # # Save the drawing to a PostScript file
+#     # canvas = turtle.getcanvas()
+#     # canvas.postscript(file="drawing.ps", colormode='color')
 
-    # # Convert the PostScript file to PNG
-    # with Image.open("drawing.ps") as img:
-    #     img.save("drawing.png")
+#     # # Convert the PostScript file to PNG
+#     # with Image.open("drawing.ps") as img:
+#     #     img.save("drawing.png")
 
-# Example usage
+# # Example usage
 # filled_circle(50, 'red')
 
 
