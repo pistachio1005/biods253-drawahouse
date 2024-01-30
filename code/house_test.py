@@ -3,17 +3,17 @@
 from PIL import Image
 import matplotlib.testing.compare as mpcompare
 import unittest
+import shapes
 import tempfile
 import os.path
 import svg_turtle
 import inspect
-import shapes
+from main_script import *
 
 from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPDF, renderPM
 
-# CANVAS_SIZE = (500,500)
-CANVAS_SIZE = (957, 807)
+CANVAS_SIZE = (997,997)
 
 class TestShapes(unittest.TestCase):
     def _compare_canvas_to_expected(self, expected_filename, override_tmpdir=None):
@@ -45,19 +45,58 @@ class TestShapes(unittest.TestCase):
         # this is run before every test
         self._turtle = svg_turtle.SvgTurtle(*CANVAS_SIZE)
 
-    def test_circle(self):
-        # shapes.draw_circle(self._turtle, 20, 20, 20)
-        shapes.filled_circle(50, 'red')
+    def test_full_house(self):
+        main()
         # compare this 20,20,20 turtle against the well-known turtle png
-        self.assertIsNone(self._compare_canvas_to_expected(expected_filename='drawing.png'))
-
-    # def test_circle_fail(self):
-    #     # test that a badly sized circle fails to compare as equal
-    #     shapes.draw_circle(self._turtle, 20,20,29)
-
-    #     # this should not match, therefore should be not none.
-    #     self.assertIsNotNone(self._compare_canvas_to_expected(expected_filename='testdata/circle-20.png'))
-
+        self.assertIsNone(self._compare_canvas_to_expected(expected_filename='code/testdata/full_house.png'))
+    def test_clouds(self):
+        cloud_start_x1 = -300
+        cloud_start_y1 = 300
+        cloud_size_1 = 40
+        cloud_start_x2 = 250
+        cloud_start_y2 = 250
+        cloud_size_2 = 30
+        draw_cloud(cloud_start_x1, cloud_start_y1, cloud_size_1)
+        draw_cloud(cloud_start_x2, cloud_start_y2, cloud_size_2)
+        self.assertIsNone(self._compare_canvas_to_expected(expected_filename='code/testdata/clouds.png'))
+    def test_door(self):
+           # Draw door
+        door_width = 40
+        door_height = 80
+        door_color = "brown"
+        door_start_x = -door_width/2
+        door_start_y = -70
+        draw_door(door_start_x, door_start_y, door_width, door_height, door_color)
+        self.assertIsNone(self._compare_canvas_to_expected(expected_filename='code/testdata/doors.png'))
+    def test_trees(self):
+        draw_tree(-400, -200, 100, 40, 120)
+        draw_tree(300, -200, 100, 40, 120)
+        self.assertIsNone(self._compare_canvas_to_expected(expected_filename='code/testdata/trees.png'))
+    def test_windows(self):
+       # Draw windows
+        window_start_x1 = -190
+        window_start_x2 = -105
+        window_start_x3 = 55
+        window_start_x4 = 140
+        window_start_y = 10
+        window_width = 50
+        window_height = 50
+        draw_window(window_start_x1, window_start_y, window_width, window_height)
+        draw_window(window_start_x2, window_start_y, window_width, window_height)
+        draw_window(window_start_x3, window_start_y, window_width, window_height)
+        draw_window(window_start_x4, window_start_y, window_width, window_height)
+        self.assertIsNone(self._compare_canvas_to_expected(expected_filename='code/testdata/windows.png'))
+    def test_gdoors(self):
+         # Draw garage doors
+        gdoor_start_x1 = -190
+        gdoor_start_x2 = 140
+        gdoor_start_y = -50
+        gdoor_width = 50
+        gdoor_height = 100
+        gdoor_color = "grey"   
+        draw_door(gdoor_start_x1, gdoor_start_y, gdoor_width, gdoor_height, gdoor_color)
+        draw_door(gdoor_start_x2, gdoor_start_y, gdoor_width, gdoor_height, gdoor_color)
+        self.assertIsNone(self._compare_canvas_to_expected(expected_filename='code/testdata/gdoors.png'))
 
 if __name__ == '__main__':
     unittest.main()
