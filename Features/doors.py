@@ -13,14 +13,14 @@ def draw_door(x,y,width,height):
     Function to draw the entrance door
     """
 
-    t.color("brown")
-    t.begin_fill()
+    
 
     #door position
     t.penup()
     t.goto(x,y)  #Adjust door position
     t.pendown()
-
+    t.color("brown")
+    t.begin_fill()
     #Draw rectangular door
     rectangle(t, width, height)
     t.end_fill()
@@ -29,13 +29,15 @@ def draw_gdoor(x,y,width,height):
     """
     Function to draw the garage door
     """
-    t.begin_fill()
-    t.color("gray")
+
 
     #Position the first garage turtle without drawing
     t.penup()
     t.goto(x, y)  # Adjust the position as needed
     t.pendown()
+    t.begin_fill()
+    
+    t.color("gray")
 
     #draw first rectangular garage
     rectangle(t, width, height)
