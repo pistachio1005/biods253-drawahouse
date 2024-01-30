@@ -11,13 +11,12 @@ def draw_door(x,y,width,height,color):
     color: color of the door
     """
 
-    t.color(color)
-    t.begin_fill()
-
     #door position
     t.penup()
     t.goto(x,y)
     t.pendown()
 
+    t.color(color)
+    t.begin_fill()
     rectangle(t, width, height)
     t.end_fill()
